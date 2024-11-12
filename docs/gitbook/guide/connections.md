@@ -25,7 +25,7 @@ const myWorker = new Worker('myqueue', async (job)=>{}, { connection: {
 import { Queue, Worker } from 'bullmq';
 import IORedis from 'ioredis';
 
-const connection = new IORedis();
+const connection = new IORedis({ maxRetriesPerRequest: null });
 
 // Reuse the ioredis instance
 const myQueue = new Queue('myqueue', { connection });
